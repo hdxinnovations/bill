@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Choose Tax Type</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  button {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Select Tax Mode</h2>
+  <button id="igstBtn">IGST (Interstate)</button>
+  <button id="cgstSgstBtn">CGST + SGST (Intrastate)</button>
+  <button id="deliverychallanBtn">Delivery Challan</button>
+</div>
+
+<script>
+  // When user clicks a button, save choice to localStorage and redirect
+  document.getElementById('igstBtn').addEventListener('click', () => {
+    localStorage.setItem('taxMode', 'IGST');
+    alert('Selected IGST mode! You will be redirected to the invoice page.');
+    // Change this URL to your invoice page URL if needed
+    window.location.href = 'index2.html'; 
+  });
+
+  document.getElementById('cgstSgstBtn').addEventListener('click', () => {
+    localStorage.setItem('taxMode', 'CGST & SGST');
+    alert('Selected CGST + SGST mode! You will be redirected to the invoice page.');
+    // Change this URL to your invoice page URL if needed
+    window.location.href = 'index1.html'; 
+  });
+
+  document.getElementById('deliverychallanBtn').addEventListener('click', () => {
+    const taxMode = localStorage.getItem('taxMode');
+console.log(taxMode);
+    alert('You will be redirected to the delivery challan page.');
+    // Change this URL to your invoice page URL if needed
+    window.location.href = 'index3.html'; 
+  });
+</script>
+
+</body>
+</html>
